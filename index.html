@@ -1,0 +1,350 @@
+<!DOCTYPE html>
+<html lang="id">
+  <head>
+    <meta charset="UTF-8" />
+    <title>Latte Luv</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <link rel="stylesheet" href="css/style.css" />
+    <script src="js/script.js" defer></script>
+    <script src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.5.1/dist/confetti.browser.min.js"></script>
+  </head>
+  <body>
+    <div id="preloader">
+      <div class="loader">
+        <div class="cup"></div>
+        <p>Memuat Latte Luv...</p>
+      </div>
+    </div>
+    <div class="welcome-popup" id="welcomePopup">
+      <div class="popup-content">
+        <h1>Welcome to <span>Latte Luv</span> 💕</h1>
+      </div>
+    </div>
+    <section class="hero">
+      <div class="hero-content">
+        <h1>Selamat Datang di Latte Luv</h1>
+        <p class="tagline">
+          Nikmati sensasi kopi dengan cita rasa unik dan tampilan cantik ala
+          pastel!
+        </p>
+        <a href="#menu" class="btn-belanja">Belanja Sekarang</a>
+      </div>
+    </section>
+
+    <header>
+      <div class="toggle-container">
+        <label class="switch">
+          <input type="checkbox" id="darkModeToggle" />
+          <span class="slider"></span>
+        </label>
+      </div>
+
+      <h1>Latte Luv</h1>
+      <button id="menu-toggle" class="menu-toggle">☰</button>
+      <nav id="main-nav">
+        <a href="index.html">Home</a>
+        <a href="#menu">Menu</a>
+        <a href="kontak.html">Kontak</a>
+        <div class="cart-wrapper cart-fixes">
+          <a href="#" id="cartBtn">🛒 <span id="cartCount">0</span></a>
+          <div id="cartDropdown" class="cart-dropdown">
+            <h4>Keranjang Belanja</h4>
+            <ul id="cartItems"></ul>
+            <p id="cartTotal">Total: Rp 0</p>
+          </div>
+        </div>
+      </nav>
+    </header>
+
+    <section class="promo">
+      <h2>☕ Promo Spesial Juli! Dapatkan Diskon 20% 🔥</h2>
+    </section>
+
+    <section class="intro">
+      <p>
+        Latte Luv adalah coffee shop bertema pastel pink dengan suasana hangat
+        dan ramah. Kami menyajikan kopi latte terbaik dengan cita rasa unik dan
+        bahan berkualitas premium.🌸
+      </p>
+    </section>
+
+    <section class="search-section">
+      <input type="text" id="searchInput" placeholder="Cari menu latte..." />
+    </section>
+
+    <section class="filter-section">
+      <label for="filterSelect">Filter Menu:</label>
+      <select id="filterSelect">
+        <option value="all">Semua</option>
+        <option value="manis">Manis</option>
+        <option value="buah">Buah</option>
+        <option value="mint">Mint</option>
+        <option value="mahal">Harga > Rp 33.000</option>
+        <option value="murah">Harga <= Rp 33.000</option>
+      </select>
+    </section>
+
+    <section id="menu" class="menu-list">
+      <h2>Best Seller Menu</h2>
+      <div class="menu-container">
+        <div class="menu-item" data-rasa="manis" data-harga="30000">
+          <section class="intro reveal">
+            <img src="img/vanilla.jpg" alt="Vanilla Latte" />
+            <h3>Vanilla Latte</h3>
+            <p>
+              Rasa vanila yang lembut dipadukan dengan espresso pilihan dan susu
+              segar. Klasik, halus, dan tak pernah gagal memanjakan.
+            </p>
+            <span>Rp 30.000</span>
+            <button
+              class="add-to-cart"
+              data-name="Vanilla Latte"
+              data-price="30000"
+            >
+              Tambah ke Keranjang
+            </button>
+            <button class="wishlist-btn" data-name="Vanilla Latte">🤍</button>
+          </section>
+        </div>
+
+        <div class="menu-item" data-rasa="manis" data-harga="32000">
+          <section class="intro reveal">
+            <img src="img/caramel.jpg" alt="Caramel Latte" />
+            <h3>Caramel Latte</h3>
+            <p>
+              Latte klasik dengan sentuhan manis karamel yang memanjakan lidah.
+              Cocok dinikmati di pagi atau sore hari.
+            </p>
+            <span>Rp 32.000</span>
+            <button
+              class="add-to-cart"
+              data-name="Caramel Latte"
+              data-price="32000"
+            >
+              Tambah ke Keranjang
+            </button>
+            <button class="wishlist-btn" data-name="Caramel Latte">🤍</button>
+          </section>
+        </div>
+
+        <div class="menu-item" data-rasa="manis" data-harga="32000">
+          <section class="intro reveal">
+            <img src="img/hazelnut.jpg" alt="Hazelnut Latte" />
+            <h3>Hazelnut Latte</h3>
+            <p>
+              Latte beraroma kacang hazelnut yang hangat dan lembut, memberikan
+              rasa klasik yang elegan dan menenangkan.
+            </p>
+            <span>Rp 32.000</span>
+            <button
+              class="add-to-cart"
+              data-name="Hazelnut Latte"
+              data-price="32000"
+            >
+              Tambah ke Keranjang
+            </button>
+            <button class="wishlist-btn" data-name="Hazelnut Latte">🤍</button>
+          </section>
+        </div>
+
+        <div class="menu-item" data-rasa="mint" data-harga="35000" o>
+          <section class="intro reveal">
+            <img src="img/matcha.jpg" alt="matcha Latte" />
+            <h3>Matcha Latte</h3>
+            <p>
+              Perpaduan lembut antara bubuk matcha premium dan susu creamy yang
+              menenangkan pikiran dan tubuh.
+            </p>
+            <span>Rp 35.000</span>
+            <button
+              class="add-to-cart"
+              data-name="Matcha Latte"
+              data-price="35000"
+            >
+              Tambah ke Keranjang
+            </button>
+            <button class="wishlist-btn" data-name="Matcha Latte">🤍</button>
+          </section>
+        </div>
+
+        <div class="menu-item" data-rasa="buah" data-harga="33000">
+          <section class="intro reveal">
+            <img src="img/rose.jpg" alt="Rose Latte" />
+            <h3>Rose Latte</h3>
+            <p>
+              Latte elegan dengan aroma bunga mawar yang lembut dan rasa manis
+              floral yang menenangkan.
+            </p>
+            <span>Rp 33.000</span>
+            <button
+              class="add-to-cart"
+              data-name="Rose Latte"
+              data-price="33000"
+            >
+              Tambah ke Keranjang
+            </button>
+            <button class="wishlist-btn" data-name="Rose Latte">🤍</button>
+          </section>
+        </div>
+
+        <div class="menu-item" data-rasa="mint" data-harga="34000">
+          <section class="intro reveal">
+            <img src="img/chocomint.jpg" alt="CHoco Mint Latte" />
+            <h3>Choco Mint Latte</h3>
+            <p>
+              Sensasi menyegarkan perpaduan cokelat manis dan mint dingin.
+              Nikmat, unik, dan bikin nagih!
+            </p>
+            <span>Rp 34.000</span>
+            <button
+              class="add-to-cart"
+              data-name="Choco Mint Latte"
+              data-price="34000"
+            >
+              Tambah ke Keranjang
+            </button>
+            <button class="wishlist-btn" data-name="Choco Mint Latte">
+              🤍
+            </button>
+          </section>
+        </div>
+
+        <div class="menu-item" data-rasa="manis" data-harga="36000">
+          <section class="intro reveal">
+            <img src="img/tiramisu.jpg" alt="Tiramisu Latte" />
+            <h3>Tiramisu Latte</h3>
+            <p>
+              Latte kaya rasa terinspirasi dari dessert Italia, dengan sentuhan
+              kopi, cokelat, dan krim yang lembut dalam satu gelas.
+            </p>
+            <span>Rp 36.000</span>
+            <button
+              class="add-to-cart"
+              data-name="Tiramisu Latte"
+              data-price="36000"
+            >
+              Tambah ke Keranjang
+            </button>
+            <button class="wishlist-btn" data-name="Tiramisu Latte">🤍</button>
+          </section>
+        </div>
+
+        <div class="menu-item" data-rasa="buah" data-harga="33000">
+          <section class="intro reveal">
+            <img src="img/blueberry.jpg" alt="Blueberry Latte" />
+            <h3>Blueberry Latte</h3>
+            <p>
+              Inovasi rasa unik dari perpaduan kopi dan blueberry segar. Manis,
+              asam segar, dan creamy dalam satu tegukan.
+            </p>
+            <span>Rp 33.000</span>
+            <button
+              class="add-to-cart"
+              data-name="Blueberry Latte"
+              data-price="33000"
+            >
+              Tambah ke Keranjang
+            </button>
+            <button class="wishlist-btn" data-name="Blueberry Latte">🤍</button>
+          </section>
+        </div>
+
+        <div class="menu-item" data-rasa="buah" data-harga="34000">
+          <section class="intro reveal">
+            <img src="img/pinkcoconut.jpg" alt="Caramel Latte" />
+            <h3>Pink Coconut Latte</h3>
+            <p>
+              Latte berwarna pink cantik dengan sentuhan kelapa tropis yang
+              creamy dan eksotis.
+            </p>
+            <span>Rp 34.000</span>
+            <button
+              class="add-to-cart"
+              data-name="Pink Coconut Latte"
+              data-price="34000"
+            >
+              Tambah ke Keranjang
+            </button>
+            <button class="wishlist-btn" data-name="Pink Latte">🤍</button>
+          </section>
+        </div>
+
+        <div class="menu-item" data-rasa="manis" data-harga="35000">
+          <section class="intro reveal">
+            <img src="img/toffenut.jpg" alt="Toffe Nut Latte" />
+            <h3>Toffe Nut Latte</h3>
+            <p>
+              Perpaduan manisnya toffee dan gurihnya kacang dalam balutan latte
+              hangat yang memanjakan lidah.
+            </p>
+            <span>Rp 35.000</span>
+            <button
+              class="add-to-cart"
+              data-name="Toffe NUt  Latte"
+              data-price="35000"
+            >
+              Tambah ke Keranjang
+            </button>
+            <button class="wishlist-btn" data-name="Toffe Nut Latte">🤍</button>
+          </section>
+        </div>
+      </div>
+    </section>
+
+    <section id="pembayaran" class="payment-section">
+      <h2>Form Pembayaran</h2>
+      <form class="payment-form" onsubmit="return prosesPembayaran(event)">
+        <label for="nama">Nama Lengkap:</label>
+        <input type="text" id="nama" name="nama" required />
+
+        <label for="alamat">Alamat Pengiriman:</label>
+        <textarea id="alamat" name="alamat" rows="3" required></textarea>
+
+        <label for="metode">Metode Pembayaran:</label>
+        <select id="metode" name="metode" required>
+          <option value="">-- Pilih Metode --</option>
+          <option value="transfer">Transfer Bank</option>
+          <option value="cod">Bayar di Tempat (COD)</option>
+          <option value="ewallet">E-Wallet (DANA, OVO, GoPay)</option>
+        </select>
+
+        <button type="submit">Kirim Pembayaran</button>
+      </form>
+    </section>
+
+    <footer id="kontak">
+      <h2>Hubungi Kami</h2>
+      <p>
+        &copy; 2025 Latte Luv | Alamat: Jl. Mawar No.10 Bandung | ☎
+        0812-3456-7890 | 📧 latte@luv.id
+      </p>
+      <p>
+        Ikuti kami: <a href="#">Instagram</a> | <a href="#">Facebook</a> |
+        <a href="#">X</a>
+      </p>
+
+      <form class="contact-form">
+        <label for="nama">Nama:</label>
+        <input type="text" id="nama" name="nama" required />
+
+        <label for="pesan">Pesan:</label>
+        <textarea id="pesan" name="pesan" rows="3" required></textarea>
+
+        <button type="submit">Kirim</button>
+      </form>
+    </footer>
+
+    <section class="loyalty-section">
+      <h2>Kartu Member Latte Luv</h2>
+      <div class="stamp-card">
+        <div class="stamp" data-stamp="1"></div>
+        <div class="stamp" data-stamp="2"></div>
+        <div class="stamp" data-stamp="3"></div>
+        <div class="stamp" data-stamp="4"></div>
+        <div class="stamp" data-stamp="5"></div>
+      </div>
+      <p id="loyaltyMsg">Beli 5x, dapatkan 1 minuman gratis! 🥤</p>
+      <button onclick="addStamp()">Tambah Stempel</button>
+    </section>
+  </body>
+</html>
